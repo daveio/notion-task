@@ -43,3 +43,13 @@ gem install notion-task
 ```sh
 notion-task version
 ```
+
+## Development
+
+This only matters if you're working on the code.
+
+To execute `notion-task` without installing the gem, from the root of the project:
+
+```sh
+ruby -Ilib ./bin/notion-task
+```
