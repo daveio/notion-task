@@ -2,9 +2,6 @@
 
 # code: language=ruby
 
-# typed: true
-
-require_relative "monkeypatch"
 require "rubygems"
 require "commander"
 require_relative "metadata"
@@ -14,7 +11,6 @@ require_relative "commands/version"
 class NotionTask
   include Commander::Methods
 
-  sig { void }
   def run
     setup_program
     setup_commands
@@ -23,7 +19,6 @@ class NotionTask
 
   private
 
-  sig { void }
   def setup_program
     program :name, Metadata.name
     program :version, Metadata.version
@@ -31,12 +26,10 @@ class NotionTask
     program :help, "Documentation", "https://github.com/daveio/notion-task"
   end
 
-  sig { void }
   def setup_commands
     setup_version_command
   end
 
-  sig { void }
   def setup_version_command
     command :version do |c|
       c.syntax = "notion-task version"

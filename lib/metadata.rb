@@ -2,8 +2,6 @@
 
 # code: language=ruby
 
-# typed: false
-
 # Module containing metadata for the NotionTask gem specification
 module Metadata
   def self.version
@@ -64,6 +62,7 @@ module Metadata
 
   def self.development_dependencies
     {
+      "httparty" => "~> 0.22.0",
       "pry" => "~> 0.15.2",
       "pry-sorbet" => "~> 0.2.1",
       "rdoc" => "~> 6.12",
