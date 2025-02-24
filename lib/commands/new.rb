@@ -15,7 +15,7 @@ module Commands
     end
 
     def run
-      puts @api.new_task("TEST ITEM")
+      puts @api.new_task(@args.join(" "))
     end
   end
 end

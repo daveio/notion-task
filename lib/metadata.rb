@@ -5,7 +5,7 @@
 # Module containing metadata for the NotionTask gem specification
 module Metadata
   def self.version
-    "0.0.4"
+    "0.0.5"
   end
 
   def self.name
