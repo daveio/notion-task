@@ -5,7 +5,6 @@
 require 'rubygems'
 require 'commander'
 require_relative 'metadata'
-require_relative 'commands/clone'
 require_relative 'commands/version'
 
 # Main application class for NotionTask command-line interface
@@ -29,7 +28,6 @@ class NotionTask
   end
 
   def setup_commands
-    setup_clone_command
     setup_version_command
   end
 
