@@ -1,6 +1,6 @@
 # `notion-task`
 
-`notion-task` is a command-line tool for managing GitHub repositories.
+`notion-task` is a command-line tool for managing tasks in a Notion database.
 
 It doesn't care how you invoke it, so you might like to set a shell alias for `task` if it doesn't clash with anything else.
 
