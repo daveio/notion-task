@@ -2,6 +2,8 @@
 
 require_relative "lib/metadata"
 
+# typed: false
+
 Gem::Specification.new do |s|
   s.name = Metadata.name
   s.version = Metadata.version

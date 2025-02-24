@@ -2,6 +2,8 @@
 
 # code: language=ruby
 
+# typed: false
+
 # Module containing metadata for the NotionTask gem specification
 module Metadata
   def self.version
