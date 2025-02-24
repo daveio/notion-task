@@ -5,7 +5,7 @@
 # Module containing metadata for the NotionTask gem specification
 module Metadata
   def self.version
-    "0.0.5"
+    "0.0.6"
   end
 
   def self.name
@@ -63,6 +63,7 @@ module Metadata
   def self.dependencies
     {
       "commander" => "~> 5.0.0",
+      "httparty" => "~> 0.22.0",
       "notion-ruby-client" => "~> 1.2.2",
       "terminal-table" => "~> 4.0.0"
     }
@@ -70,16 +71,9 @@ module Metadata
 
   def self.development_dependencies
     {
-      "httparty" => "~> 0.22.0",
       "pry" => "~> 0.15.2",
-      "pry-sorbet" => "~> 0.2.1",
-      "rdoc" => "~> 6.12",
-      "ruby_parser" => "~> 3.21.1",
       "solargraph" => "~> 0.51.2",
-      "standard" => "~> 1.45.0",
-      "sorbet-static-and-runtime" => "~> 0.5.11851",
-      "spoom" => "~> 1.5",
-      "tapioca" => "~> 0.16.11"
+      "standard" => "~> 1.45.0"
     }
   end
 
