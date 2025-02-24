@@ -5,7 +5,7 @@
 # Module containing metadata for the NotionTask gem specification
 module Metadata
   def self.version
-    "0.0.3"
+    "0.0.4"
   end
 
   def self.name
@@ -29,7 +29,15 @@ module Metadata
   end
 
   def self.files
-    ["lib/", "bin/notion-task"]
+    [
+      "bin/notion-task",
+      "lib/api.rb",
+      "lib/commands/list.rb",
+      "lib/commands/new.rb",
+      "lib/commands/version.rb",
+      "lib/metadata.rb",
+      "lib/notion-task.rb"
+    ]
   end
 
   def self.executables
