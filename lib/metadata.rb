@@ -63,8 +63,13 @@ module Metadata
   def self.development_dependencies
     {
       'pry' => '~> 0.15.2',
+      'pry-sorbet' => '~> 0.2.1',
+      "rdoc" => "~> 6.12",
+      'ruby_parser' => '~> 3.21.1',
       'solargraph' => '~> 0.51.2',
       'standard' => '~> 1.45.0',
+      'sorbet-static-and-runtime' => '~> 0.5.11851',
+      'tapioca' => '~> 0.16.11'
     }
   end
 
