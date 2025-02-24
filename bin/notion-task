@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+# code: language=ruby
+# frozen_string_literal: true
+
+require 'notion-task'
+
+NotionTask.new.run
