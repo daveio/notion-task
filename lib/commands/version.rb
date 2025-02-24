@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../metadata'
+require_relative "../metadata"
 
 # Commands module contains all CLI command implementations
 module Commands

@@ -198,6 +198,7 @@ DEPENDENCIES
   ruby_parser (~> 3.21.1)
   solargraph (~> 0.51.2)
   sorbet-static-and-runtime (~> 0.5.11851)
+  spoom (~> 1.5)
   standard (~> 1.45.0)
   tapioca (~> 0.16.11)
 

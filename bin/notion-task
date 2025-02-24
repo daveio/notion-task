@@ -2,6 +2,6 @@
 # code: language=ruby
 # frozen_string_literal: true
 
-require 'notion-task'
+require "notion-task"
 
 NotionTask.new.run
