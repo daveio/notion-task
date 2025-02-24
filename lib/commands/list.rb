@@ -6,15 +6,16 @@ require_relative "../api"
 # Commands module contains all CLI command implementations
 module Commands
   # Command to get NotionTask version
-  class Version
+  class List
     def initialize(args, options)
       @args = args
       @options = options
+      @api = NotionAPI.new
       run
     end
 
     def run
-      puts "notion-task #{Metadata.version}"
+      puts @api.get_tasks
     end
   end
 end

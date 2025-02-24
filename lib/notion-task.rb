@@ -5,6 +5,7 @@
 require "rubygems"
 require "commander"
 require_relative "metadata"
+require_relative "commands/list"
 require_relative "commands/version"
 
 # Main application class for NotionTask command-line interface
@@ -28,6 +29,7 @@ class NotionTask
 
   def setup_commands
     setup_version_command
+    setup_list_command
   end
 
   def setup_version_command
@@ -37,6 +39,16 @@ class NotionTask
       c.description = c.summary
       c.example c.summary, "notion-task version"
       c.when_called Commands::Version
+    end
+  end
+
+  def setup_list_command
+    command :list do |c|
+      c.syntax = "notion-task list"
+      c.summary = "List all tasks in the database"
+      c.description = c.summary
+      c.example c.summary, "notion-task list"
+      c.when_called Commands::List
     end
   end
 end
