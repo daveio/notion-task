@@ -35,6 +35,11 @@ build-iPhoneSimulator/
 #
 # vendor/Pods/
 
+# env
+.env.yaml
+.env.json
+.env
+
 ## Documentation cache and generated files:
 /.yardoc/
 /_yardoc/

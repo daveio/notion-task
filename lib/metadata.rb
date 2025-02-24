@@ -55,6 +55,7 @@ module Metadata
   def self.dependencies
     {
       'commander' => '~> 5.0.0',
+      'notion-ruby-client' => '~> 1.2.2',
       'terminal-table' => '~> 4.0.0'
     }
   end
