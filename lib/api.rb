@@ -8,7 +8,7 @@ require "json"
 # Notion API class
 #
 # @author Dave Williams
-# @since 0.0.1
+# @since 0.0.2
 class NotionAPI
   # Initialize the Notion API class
   #
@@ -47,6 +47,27 @@ class NotionAPI
       ]
     }
     resp = POST("/databases/#{@database}/query", query.to_json)
+    puts resp
+  end
+
+  def new_task(title)
+    query = {
+      parent: {
+        database_id: @database
+      },
+      properties: {
+        Title: {
+          title: [
+            {
+              text: {
+                content: title
+              }
+            }
+          ]
+        }
+      }
+    }
+    resp = POST("/pages", query.to_json)
     puts resp
   end
 end
