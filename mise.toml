@@ -1,5 +1,5 @@
 [tools]
-ruby = "3.4.2"
+node = "lts"
 
 [settings]
 env_file = ".env"

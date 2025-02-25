@@ -1,55 +1,71 @@
-# `notion-task`
+# Notion Tasks CLI
 
-`notion-task` is a command-line tool for managing tasks in a Notion database.
-
-It doesn't care how you invoke it, so you might like to set a shell alias for `task` if it doesn't clash with anything else.
-
-## Before you start
-
-You need to set two environment variables.
-
-### `NOTION_TASK_API_KEY`
-
-Set `NOTION_TASK_API_KEY` to the API key you obtained from Notion when you configured your internal integration.
-
-### `NOTION_TASK_DATABASE`
-
-Set `NOTION_TASK_DATABASE` to the ID of the Notion database which you want `notion-task` to interact with.
-
-### `sh` / `bash` / `zsh`
-
-```sh
-export NOTION_TASK_API_KEY="ntn_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-export NOTION_TASK_DATABASE="aabbccddeeff00112233445566778899"
-```
-
-### `fish`
-
-```fish
-set -gx NOTION_TASK_API_KEY "ntn_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-set -gx NOTION_TASK_DATABASE "aabbccddeeff00112233445566778899"
-```
+A command-line interface for adding tasks to your Notion database with a pretty, interactive UI.
 
 ## Installation
 
-```sh
-gem install notion-task
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/notion-tasks-cli.git
+cd notion-tasks-cli
+
+# Install dependencies
+npm install
+
+# Build the project
+npm run build
+
+# Link the package globally
+npm link
 ```
+
+## Configuration
+
+Before using the CLI, you need to configure it with your Notion API key and database ID:
+
+```bash
+notion-task config
+```
+
+Alternatively, you can create a `.env` file with the following variables:
+
+```
+NOTION_API_KEY=your_notion_api_key
+NOTION_DATABASE_ID=your_notion_database_id
+```
+
+### Getting Your Notion API Key
+
+1. Go to [https://www.notion.so/my-integrations](https://www.notion.so/my-integrations)
+2. Create a new integration
+3. Copy the "Internal Integration Token"
+
+### Getting Your Database ID
+
+1. Open your Notion database in the browser
+2. The database ID is the part of the URL after the workspace name and before the question mark:
+   `https://www.notion.so/workspace-name/{database_id}?...`
+
+Remember to share your database with your integration!
 
 ## Usage
 
-### Show version
+### Add a task interactively
 
-```sh
-notion-task version
+```bash
+notion-task add
 ```
 
-## Development
+This will prompt you for task details like title, description, due date, priority, and status.
 
-This only matters if you're working on the code.
+### Quick add a task
 
-To execute `notion-task` without installing the gem, from the root of the project:
-
-```sh
-ruby -Ilib ./bin/notion-task
+```bash
+notion-task add -q "Buy groceries"
 ```
+
+This will add a task with the given title and default values for other fields.
+
+## License
+
+MIT
