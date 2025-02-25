@@ -1,4 +1,3 @@
-// File: src/notion.ts
 import { Client } from '@notionhq/client';
 import chalk from 'chalk';
 import ora from 'ora';
@@ -18,18 +17,18 @@ export async function addTask(
   taskDetails: TaskDetails
 ): Promise<void> {
   const spinner = ora('Adding task to Notion...').start();
-
+  
   try {
     const notion = new Client({
       auth: apiKey,
     });
-
+    
     const { title, description, dueDate, priority, status } = taskDetails;
-
+    
     // Create the properties object for the Notion page
     const properties: any = {
       // Assuming the title property in your database is called "Name"
-      "Title": {
+      "Name": {
         title: [
           {
             text: {
@@ -44,8 +43,13 @@ export async function addTask(
           name: priority,
         },
       },
+      "Status": {
+        select: {
+          name: status,
+        },
+      },
     };
-
+    
     // Add due date if provided
     if (dueDate) {
       properties["Due Date"] = {
@@ -54,7 +58,7 @@ export async function addTask(
         },
       };
     }
-
+    
     // Create the page in Notion
     await notion.pages.create({
       parent: {
@@ -80,9 +84,9 @@ export async function addTask(
           ]
         : [],
     });
-
+    
     spinner.succeed(chalk.green('Task added successfully! 🎉'));
-
+    
     // Display task details
     console.log('\n' + chalk.bold('Task Details:'));
     console.log(chalk.cyan('Title:      ') + title);
@@ -94,13 +98,13 @@ export async function addTask(
     }
     console.log(chalk.cyan('Priority:   ') + priorityColor(priority) + priority);
     console.log(chalk.cyan('Status:     ') + statusColor(status) + status);
-
+    
   } catch (error: any) {
     spinner.fail(chalk.red('Failed to add task'));
-
+    
     if (error.code === 'notionhq_client_response_error') {
       console.error(chalk.red('\nNotion API Error:'), error.message);
-
+      
       if (error.status === 401) {
         console.log(chalk.yellow('\nTip: Your API key might be invalid. Run "notion-task config" to update it.'));
       } else if (error.status === 404) {
@@ -110,7 +114,7 @@ export async function addTask(
     } else {
       console.error(chalk.red('\nError details:'), error);
     }
-
+    
     process.exit(1);
   }
 }

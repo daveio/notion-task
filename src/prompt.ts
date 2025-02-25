@@ -1,10 +1,9 @@
-// File: src/prompt.ts
 import { format } from 'date-fns';
 import chalk from 'chalk';
 
 export async function promptForTaskDetails() {
   const { prompt } = await import('enquirer');
-
+  
   const responses = await prompt([
     {
       type: 'input',
@@ -49,9 +48,9 @@ export async function promptForTaskDetails() {
       initial: 0
     }
   ]);
-
+  
   const { title, description, hasDueDate, dueDate, priority, status } = responses as any;
-
+  
   return {
     title,
     description,

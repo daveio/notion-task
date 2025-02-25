@@ -42,7 +42,7 @@ program
   .description('Configure your Notion API key and database ID')
   .action(async () => {
     const { prompt } = await import('enquirer');
-
+    
     const response = await prompt([
       {
         type: 'input',
@@ -57,7 +57,7 @@ program
         initial: config.get('notionDatabaseId') as string || process.env.NOTION_DATABASE_ID || '',
       }
     ]);
-
+    
     config.set(response);
     console.log(chalk.green('✓ Configuration saved successfully!'));
   });
@@ -70,16 +70,16 @@ program
     // Get API key and database ID from config or environment variables
     const notionApiKey = config.get('notionApiKey') as string || process.env.NOTION_API_KEY;
     const notionDatabaseId = config.get('notionDatabaseId') as string || process.env.NOTION_DATABASE_ID;
-
+    
     if (!notionApiKey || !notionDatabaseId) {
       console.log(chalk.red('Error: Notion API key or database ID not configured.'));
       console.log(chalk.yellow('Please run "notion-task config" or set environment variables.'));
       return;
     }
-
+    
     try {
       let taskDetails;
-
+      
       if (options.quick) {
         // Quick add mode with just a title
         taskDetails = {
@@ -93,9 +93,9 @@ program
         // Interactive mode
         taskDetails = await promptForTaskDetails();
       }
-
+      
       await addTask(notionApiKey, notionDatabaseId, taskDetails);
-
+      
     } catch (error) {
       console.error(chalk.red('Failed to add task:'), error);
     }
